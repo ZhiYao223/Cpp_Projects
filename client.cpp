@@ -7,7 +7,7 @@
 int main() {
     int clientSocket;
     struct sockaddr_in serverAddr;
-    const char* message = "Hello, this is a test message!";
+    const char* message = "downloadfile,filename.txt";
 
     // 创建客户端套接字
     clientSocket = socket(AF_INET, SOCK_STREAM, 0);

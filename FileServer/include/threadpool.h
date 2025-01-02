@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <vector>
 #include <thread>
@@ -13,8 +15,9 @@
 
 class ThreadPool {
 public:
-    // 构造函数：只创建线程，不做其他事情
-    explicit ThreadPool(int nums);
+    ThreadPool(){}
+    // 构造函数：创建线程
+    ThreadPool(int nums);
 
     // 禁止拷贝构造和拷贝赋值
     ThreadPool(const ThreadPool&) = delete;
@@ -26,11 +29,11 @@ public:
     template <class F, class... Args>
     void push(F&& f, Args&&... args) {
     {
+        
+        std::unique_lock<std::mutex> lock(queueMutex);
         // 封装任务为 std::function
         auto task = std::bind(std::forward<F>(f), std::forward<Args>(args)...);
         // 加入任务队列
-        std::unique_lock<std::mutex> lock(queueMutex);
-
         if (stop) {
             LOG_WARNING << "ThreadPool has been stopped, cannot push tasks";
             return;

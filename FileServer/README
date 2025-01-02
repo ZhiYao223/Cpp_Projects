@@ -15,3 +15,13 @@ cmake --build .
 2. 日志的文件路径（如果没有添加默认的路径./log/logfile.txt）
 3. MAX_EVENT， epoll每次最多可以处理的最大事件数量
 4. 线程池开辟的线程数量
+5. 服务端接受客户端的消息的最大长度MAXMESS
+
+
+三、客户端与服务端的交互格式：
+1. 下载文件：
+   downloadfile,filename.txt(pdf, other formats)
+2. 发送消息给另一用户：
+   sendmessage,message(string formats),otherclientfd
+3. 查看所有文件（暂时先不考虑用户隔离）
+   lookallfile
