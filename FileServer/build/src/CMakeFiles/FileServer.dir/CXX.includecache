@@ -70,9 +70,13 @@ sstream
 log.h
 /home/chn/FileServer/FileServer/include/log.h
 
-/home/chn/FileServer/FileServer/src/server.cpp
+/home/chn/FileServer/FileServer/src/main.cpp
+../include/log.h
+/home/chn/FileServer/FileServer/include/log.h
 ../include/server.h
 /home/chn/FileServer/FileServer/include/server.h
+../include/threadpool.h
+/home/chn/FileServer/FileServer/include/threadpool.h
 
 /home/chn/FileServer/FileServer/tool/tool.h
 string
