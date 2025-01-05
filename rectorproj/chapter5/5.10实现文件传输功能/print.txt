@@ -1,0 +1,83 @@
+#include <iostream>
+#include <vector>
+#include <string> 
+#include <iomanip>
+#include <Windows.h>
+
+using namespace std;
+#define bound_size 30   //maxWidth + bounda_size 用于调整界面长度
+
+// 计算字符显示宽度（中文和 Emoji 宽度为2，ASCII字符宽度为1）
+int getDisplayWidth(const string& str) {
+    int width = 0;
+    for (size_t i = 0; i < str.size(); i++) {
+        if ((str[i] & 0x80) == 0) {   // ASCII字符 (1字节)
+            width += 1;
+        } else {  // 非ASCII字符（中文或Emoji）
+            width += 2;  // 中文和Emoji宽度为2
+            if ((str[i] & 0xE0) == 0xC0) i += 1;   // 2字节字符
+            else if ((str[i] & 0xF0) == 0xE0) i += 2;  // 3字节字符
+            else if ((str[i] & 0xF8) == 0xF0) i += 3;  // 4字节字符（Emoji）
+        }
+    }
+    return width;
+}
+
+// 打印菜单
+void printMenu(const vector<string>& options) {
+    size_t maxWidth = 0;
+
+    // 计算最大显示宽度
+    for (auto& op : options) {
+        int width = getDisplayWidth(op);
+        maxWidth = max(maxWidth, (size_t)width);
+    }
+    string messages = "✨欢迎进入交易系统！✨";
+    // 使用 getDisplayWidth 计算messages宽度
+    int len = getDisplayWidth(messages);  
+    // 打印顶部边框
+    cout << "+" << string((maxWidth + bound_size), '-') << "+" << endl;
+    //让messages一直保持居中显示
+    cout << "+" << string(((maxWidth + bound_size - len) / 2), ' ') << messages << string(((maxWidth + bound_size - len) / 2), ' ') << "+" << endl;
+    // 打印顶部边框，且能够跟随信息长度变化
+    cout << "+" << string((maxWidth + bound_size), '-') << "+" << endl;
+
+    // 遍历选项并打印
+    for (size_t i = 0; i < options.size(); ++i) {
+        string icon;
+        switch (i) {
+            case 0: icon = "🟢"; break;
+            case 1: icon = "💰"; break;
+            case 2: icon = "📊"; break;
+            case 3: icon = "📄"; break;
+            case 4: icon = "🛒"; break;
+            case 5: icon = "📉"; break;
+            case 6: icon = "❌"; break;
+            case 7: icon = "🔓"; break;
+            case 8: icon = "🔴"; break;
+            default: icon = "➡️"; break;
+        }
+        int padding = maxWidth + bound_size-10 - getDisplayWidth(options[i]);
+        cout << "| [" << i << "] " << icon << "  " << options[i] << string(padding, ' ') << " |" << endl;
+    }
+    // 打印底部边框
+    cout << "+" << string(maxWidth + bound_size, '-') << "+" << endl;
+}
+
+int main() {
+    SetConsoleOutputCP(CP_UTF8);  // 设置控制台输出编码为 UTF-8
+    vector<string> menuOptions = {
+        "登录交易量",
+        "查询账户资金",    
+        "查询持仓",
+        "查询所有订单",
+        "下单交易",
+        "平单交易",
+        "撤销交易",
+        "退出交易加大长度，界面长度同步变化",
+        "退出系统"   
+    };
+
+    printMenu(menuOptions);
+    return 0;
+}
