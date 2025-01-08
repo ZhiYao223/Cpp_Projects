@@ -231,7 +231,7 @@ int main(int argc,char *argv[])
 
     // 2）给客户端回复确认报文，表示客户端可以发送文件了。
     if (tcpserver.send("ok")==false)  { perror("send"); break; }
-
+    
     // 3）接收文件内容。  string   char * + const char * + char *
     if (tcpserver.recvfile(string(argv[2])+"/"+fileinfo.filename,fileinfo.filesize)==false)
     { 
