@@ -1,0 +1,5 @@
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/chapter6/cmakeTest/build/CMakeFiles/rebuild_cache.dir
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/chapter6/cmakeTest/build/CMakeFiles/edit_cache.dir
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/chapter6/cmakeTest/build/CMakeFiles/hello.dir
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/chapter6/cmakeTest/build/CMakeFiles/func_static.dir
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/chapter6/cmakeTest/build/CMakeFiles/func_shared.dir
