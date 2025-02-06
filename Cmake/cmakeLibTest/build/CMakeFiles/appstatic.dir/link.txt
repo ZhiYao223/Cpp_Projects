@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/appstatic.dir/main.cpp.o  -o ../bin/appstatic   -L/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/lib  -Wl,-rpath,/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/lib ../lib/libOurLib.so -lOurLib 

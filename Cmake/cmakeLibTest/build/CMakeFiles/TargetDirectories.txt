@@ -1,0 +1,4 @@
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/build/CMakeFiles/rebuild_cache.dir
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/build/CMakeFiles/edit_cache.dir
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/build/CMakeFiles/appstatic.dir
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/build/CMakeFiles/OurLib.dir

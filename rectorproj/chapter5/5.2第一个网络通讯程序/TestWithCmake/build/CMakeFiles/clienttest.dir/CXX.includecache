@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/chapter5/5.2第一个网络通讯程序/TestWithCmake/clienttest.cpp
+iostream
+-
+sys/types.h
+-
+sys/socket.h
+-
+string.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+stdlib.h
+-
+netdb.h
+-
+

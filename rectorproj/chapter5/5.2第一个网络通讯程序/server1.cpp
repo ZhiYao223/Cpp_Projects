@@ -52,7 +52,7 @@ int main(int argc,char *argv[])
   }
  
   // 第4步：受理客户端的连接请求，如果没有客户端连上来，accept()函数将阻塞等待。
-  int clientfd=accept(listenfd,0,0);
+  int clientfd = accept(listenfd,0,0);
   if (clientfd==-1){
     // 如果accept被信号中断，返回-1，否则accept会一直阻塞等待。
     perror("accept"); close(listenfd); return -1; 
@@ -74,9 +74,9 @@ int main(int argc,char *argv[])
     }
     cout << "接收：" << buffer << endl;
     // 准备回应客户端的请求报文内容。
-    strcpy(buffer,"ok");  
+    strcpy(buffer,"ok"); // 回应ok。 
     // 向客户端发送回应报文。
-    if ( (iret=send(clientfd,buffer,strlen(buffer),0))<=0) 
+    if ( (iret=send(clientfd, buffer, strlen(buffer),0))<=0) 
     { 
       perror("send"); break; 
     }

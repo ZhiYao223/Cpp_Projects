@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../inc/head.h
+
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/src/add.cpp
+stdio.h
+-
+head.h
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/src/head.h
+
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/src/div.cpp
+stdio.h
+-
+head.h
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/src/head.h
+
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/src/mult.cpp
+stdio.h
+-
+head.h
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/src/head.h
+
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/src/sub.cpp
+stdio.h
+-
+head.h
+/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/rectorproj/cmakeLibTest/src/head.h
+
