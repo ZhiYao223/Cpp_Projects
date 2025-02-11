@@ -64,7 +64,7 @@ int main(){
             continue;
         }
         // 打印客户端地址, inet_ntoa将网络地址转换为点分十进制地址
-        cout << "Client connected: " << inet_ntoa(clientAddr.sin_addr)<< endl;
+        cout << "客户端连接成功，ip地址: " << inet_ntoa(clientAddr.sin_addr) << ", 分配套接字:" << clientSocket << endl;
 
         // 创建子进程处理客户端请求
         // 子进程处理客户端请求，父进程继续监听
@@ -78,14 +78,16 @@ int main(){
                 // 接收客户端请求
                 int bytesRead = recv(clientSocket, buffer, sizeof(buffer), 0);
                 if (bytesRead <= 0) {
-                    cout << "Client disconnected." << endl;
+                    cout << "客户端断开连接，套接字：" << clientSocket << endl;
                     break;
                 }
-                cout << "Message received: " << buffer << endl;
+                cout << "接收到的数据(客户端 " << clientSocket << "):"  << buffer << endl;
                 // 回传消息给客户端
-                const char* response = "Hello from server!";
-                send(clientSocket, response, strlen(response), 0);
-                cout << "Response sent to client." << endl;
+                const char* response = "发送成功，服务端已处理";
+                if(send(clientSocket, response, strlen(response), 0) <= 0){
+                    cout << "向客户端发送数据失败。\n";
+                    break;
+                }
             }
             close(clientSocket);  // 子进程关闭客户端
             return 0; // 子进程结束

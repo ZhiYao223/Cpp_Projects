@@ -52,10 +52,10 @@ int main(int argc, char *argv[])
     setnonblocking(sockfd); 
     
     // 配置服务器结构体
-    memset(&servaddr, 0, sizeof(servaddr));         // 对servaddr内容进行清零
-    servaddr.sin_family = AF_INET;                  // IPv4协议
-    servaddr.sin_port = htons(atoi(argv[2]));       // 指定渠口，使用htons转换为大字节顺序
-    servaddr.sin_addr.s_addr = inet_addr(argv[1]);  // 输入的IP地址
+    memset(&servaddr, 0, sizeof(servaddr));       // 对servaddr内容进行清零
+    servaddr.sin_family = AF_INET;                // IPv4协议
+    servaddr.sin_port = htons(atoi(argv[2]));     // 指定渠口，使用htons转换为大字节顺序
+    servaddr.sin_addr.s_addr = inet_addr(argv[1]);// 输入的IP地址
 
     // 尝试连接到服务器
     if (connect(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr)) != 0)
@@ -77,12 +77,12 @@ int main(int argc, char *argv[])
 
     // 如果连接成功
     if (fds.revents == POLLOUT) // 如果是可写事件
-        printf("connect ok.\n");
+        printf("connect successful.\n");
     else
         printf("connect failed.\n");
     
     // 向服务器发送数据
-    for (int ii = 0; ii < 200000; ii++) // 200000次交互,发送数据并接收数据
+    for (int i = 0; i < 200000; i++) // 200000次交互,发送数据并接收数据
     {
         memset(buf, 0, sizeof(buf));    // 清空缓冲区
         printf("please input:"); 

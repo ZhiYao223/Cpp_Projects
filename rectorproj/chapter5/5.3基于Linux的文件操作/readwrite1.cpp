@@ -18,7 +18,7 @@ int main(){
         perror("open error");
         return -1;
     }
-    const char *text = "hello Linux file!";
+    const char *text = "Hello Linux file!";
     // 写入文件
     write(fd, text, strlen(text));
     // 移动文件指针到文件开头

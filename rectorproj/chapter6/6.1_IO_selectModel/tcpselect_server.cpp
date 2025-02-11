@@ -29,11 +29,11 @@ int main(int argc,char *argv[])
     //               3）tcp连接已断开（对端调用close()函数关闭了连接）。
     // 写事件：发送缓冲区没有满，可以写入数据（可以向对端发送报文）。
 
-    fd_set readfds;                         // 需要监视读事件的socket的集合，大小为16字节（1024位）的bitmap。
-    FD_ZERO(&readfds);                // 初始化readfds，把bitmap的每一位都置为0。
+    fd_set readfds; //需要监视读事件的socket的集合，大小为16字节（1024位）的bitmap。
+    FD_ZERO(&readfds);  //初始化readfds，把bitmap的每一位都置为0。
     FD_SET(listensock,&readfds);  // 把服务端用于监听的socket加入readfds。
 
-    int maxfd=listensock;              // readfds中socket的最大值。
+    int maxfd=listensock;         //readfds中socket的最大值。
 
     while (true)        // 事件循环。
     {
@@ -42,7 +42,7 @@ int main(int argc,char *argv[])
         timeout.tv_sec=10;        // 秒
         timeout.tv_usec=0;        // 微秒。
 
-        fd_set tmpfds=readfds;      // 在select()函数中，会修改bitmap，所以，要把readfds复制一份给tmpfds，再把tmpfds传给select()。
+        fd_set tmpfds=readfds;  // 在select()函数中，会修改bitmap，所以，要把readfds复制一份给tmpfds，再把tmpfds传给select()。
 
         // 调用select() 等待事件的发生（监视哪些socket发生了事件)。
         int infds=select(maxfd+1,&tmpfds,NULL,NULL,0); 
