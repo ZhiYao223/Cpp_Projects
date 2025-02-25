@@ -92,8 +92,7 @@ int main(int argc, char *argv[])
         if (send(sockfd, buf, strlen(buf), 0) <= 0)
         { 
             printf("write() failed.\n");  
-            close(sockfd);  
-            return -1;
+            break;
         }
         
         memset(buf, 0, sizeof(buf));  // 清空缓冲区
@@ -101,8 +100,7 @@ int main(int argc, char *argv[])
         if (recv(sockfd, buf, sizeof(buf), 0) <= 0) 
         { 
             printf("read() failed.\n");  
-            close(sockfd);  
-            return -1;
+            break;
         }
 
         printf("recv: %s\n", buf);  // 显示服务器返回数据

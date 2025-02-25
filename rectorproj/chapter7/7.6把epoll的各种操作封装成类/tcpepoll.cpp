@@ -34,7 +34,7 @@ int main(int argc,char *argv[])
     servsock.setreuseport(true);
     servsock.setkeepalive(true);
     servsock.bind(servaddr);
-    servsock.listen();
+    servsock.listen(128);
 
     Epoll ep;
     // 让epoll监视listenfd的读事件，采用水平触发。

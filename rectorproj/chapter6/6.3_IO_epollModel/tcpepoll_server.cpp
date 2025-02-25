@@ -97,6 +97,10 @@ int main(int argc, char *argv[])
                     // 打印接收的消息并回显给客户端
                     printf("recv(eventfd = %d): %s\n", evs[i].data.fd, buffer);
                     send(evs[i].data.fd, buffer, strlen(buffer), 0);
+                            // 继续监听该 socket 的后续事件
+                    ev.data.fd = evs[i].data.fd;
+                    ev.events = EPOLLIN;
+                    epoll_ctl(epollfd, EPOLL_CTL_MOD, evs[i].data.fd, &ev);
                 }
             }
         }

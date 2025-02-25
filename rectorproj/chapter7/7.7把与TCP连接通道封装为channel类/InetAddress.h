@@ -1,27 +1,22 @@
 #pragma once
 
-#include <string>
-#include <netinet/in.h>
 #include <arpa/inet.h>
+#include <netinet/in.h>
+#include <string>
 
 // socket的地址协议类
-class InetAddress{
-    private:
-        sockaddr_in addr_;  // socket地址结构体
-    public:
-        InetAddress();
-        //如果是监听的socket，需要绑定IP和端口，用该构造函数
-        InetAddress(const std::string &ip, uint16_t port);
-        //如果是客户端的socket，需要连接服务器，用该构造函数
-        InetAddress(const sockaddr_in addr);
-        ~InetAddress();
+class InetAddress
+{
+private:
+    sockaddr_in addr_;        // 表示地址协议的结构体。
+public:
+    InetAddress();
+    InetAddress(const std::string &ip,uint16_t port);  // 如果是监听的fd，用这个构造函数。
+    InetAddress(const sockaddr_in addr);               // 如果是客户端连上来的fd，用这个构造函数。
+    ~InetAddress();
 
-        //返回字符串表示的地址，例如：
-        const char *ip() const; 
-        //返回整数表示的端口，例如：
-        uint16_t port() const;
-        //返回addr_成员的地址，转换成了sockaddr
-        const sockaddr *addr() const;
-        //设置addr_成员的值。
-        void setaddr(sockaddr_in clientaddr);
+    const char *ip() const;                // 返回字符串表示的地址，例如：192.168.150.128
+    uint16_t    port() const;               // 返回整数表示的端口，例如：80、8080
+    const sockaddr *addr() const;           // 返回addr_成员的地址，转换成了sockaddr。
+    void setaddr(sockaddr_in clientaddr);   // 设置addr_成员的值。
 };
