@@ -54,7 +54,8 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "thread": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "future": "cpp"
     },
     "cmake.sourceDirectory": "/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/FileServer(备份)/tool"
 }
