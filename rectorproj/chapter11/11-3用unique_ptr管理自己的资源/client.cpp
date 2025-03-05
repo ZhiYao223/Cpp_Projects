@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 
         send(sockfd,tmpbuf,len+4,0);  // 把请求报文发送给服务端。
     }
-        
+    //sleep(1);return 0;
     for (int ii=0;ii<2;ii++)
     {
         int len;
@@ -62,6 +62,6 @@ int main(int argc, char *argv[])
         printf("recv:%s\n",buf);
     }
     // 不让客户端程序太快断开
-    sleep(100);
+    //sleep(100);
     // printf("结束时间：%d\n",time(0));
 } 

@@ -79,7 +79,7 @@ void EchoServer::OnMessage(spConnection conn, std::string& message)
 {
     // 在这里，将经过若干步骤的运算。
     message="reply:"+message;          // 回显业务。
-    sleep(2);
+    //sleep(2);
     printf("处理完业务后，将使用connection对象。\n");
     //把数据发送出去
     conn->send(message.data(),message.size());

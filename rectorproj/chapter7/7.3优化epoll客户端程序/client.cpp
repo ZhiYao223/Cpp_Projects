@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     if (argc != 3)
     {
         printf("usage:./client ip port\n"); 
-        printf("example:./client 192.168.150.128 5085\n\n"); 
+        printf("example:./client 192.168.206.128 5005\n\n"); 
         return -1;
     }
 
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     printf("connect ok.\n");
     // printf("开始时间：%d",time(0));
 
-    for (int ii=0;ii<200000;ii++)
+    for (int i=0;i<200000;i++)
     {
         // 从命令行输入内容。
         memset(buf,0,sizeof(buf));

@@ -10,7 +10,7 @@ Connection::Connection(EventLoop *loop,Socket *clientsock):loop_(loop),clientsoc
     clientchannel_->seterrorcallback(std::bind(&Connection::errorcallback,this));
     clientchannel_->setwritecallback(std::bind(&Connection::writecallback,this));
     // 客户端连上来的fd采用边缘触发。
-    //clientchannel_->useet();                 
+    clientchannel_->useet();                 
     // 让epoll_wait()监视clientchannel的读事件
     clientchannel_->enablereading();   
 }
