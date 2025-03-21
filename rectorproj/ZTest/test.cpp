@@ -1,21 +1,26 @@
 #include <iostream>
-#include <string.h>
+#include <ThreadPool.h>
 
-int LastLengthWord(std::string s){
-    int result = 0;
-    int len = s.size()-1;
-    while( len >= 0 && s[len] == ' ' ){
-        len--;
-    }
-    while (len >= 0 && s[len] != ' ' ){
-        result++;
-        len--;
-    }
-    return result;
-}
-
-int main()
-{
-    std::string str = "hello world";
-    char s = 'hello nihao  ';
-}
+class ThreadPool{
+private:
+    struct NWORKER{
+        pthread_t threadid;
+        bool terminate;
+        int isWorking;
+        ThreadPool* pool;
+    }*m_workers;
+    struct NJOB{
+        void(*func)(void *arg);
+        void *user_data;
+    };
+public:
+    //线程池初始化
+    //numWorkers:线程数量
+    ThreadPool(int numWorkers, int max_jobs);
+    //销毁线程池
+    ~ThreadPool();
+    int pushJob(void(*func)(void *data),void *arg, int len);
+private:
+    //向线程池中添加任务
+    bool _addJob(NJOB* job);
+};

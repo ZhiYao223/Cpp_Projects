@@ -55,7 +55,10 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "typeinfo": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "pthread.h": "c",
+        "threadpool.h": "c",
+        "stdlib.h": "c"
     },
     "cmake.sourceDirectory": "/home/zhiyao/Learnfiles/Cppfiles/Cpp_Projects/FileServer(备份)/tool"
 }
